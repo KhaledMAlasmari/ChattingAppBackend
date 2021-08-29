@@ -11,7 +11,7 @@ import chatsRouter from './controllers/chats/chatsRouter'
 const app = express()
 app.use(cors())
 app.use(express.json())
-
+app.use(express.static('public'))
 app.use(tokenExtractor)
 app.use(userExtractor)
 
