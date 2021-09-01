@@ -7,7 +7,7 @@ import tokenValidator from '../../helpers/middleware/tokenValidator'
 import getUserContacts from './getUserContacts'
 import getUserChats from './getUserChats'
 import updateUserAvatar from './updateUserAvatar'
-import updateDisplayedUserName from './updateDisplayedUsername'
+import updateDisplayedUserName from './updateDisplayedUserName'
 const usersRouter = Router()
 
 usersRouter.use('/api/users/checkIfUsernameAvaliable', checkIfUsernameAvaliable)
