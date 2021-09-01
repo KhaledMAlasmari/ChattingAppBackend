@@ -1,6 +1,6 @@
 import express from 'express'
 import {validationResult} from 'express-validator'
-const errorHandler = (error: Error, request : express.Request, response: express.Response, next: express.NextFunction): Express.Response => {
+const errorHandler = (error: Error, request : express.Request, response: express.Response, next: express.NextFunction): express.Response => {
 	const errors = validationResult(request)
 	if (!errors.isEmpty()) {
 		return response.status(400).json({ errors: errors.array() })
