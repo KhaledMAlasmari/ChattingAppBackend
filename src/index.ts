@@ -20,7 +20,6 @@ const socketServer = new Server(httpServer, {
 	}
 })
 
-// add socket id to database when connecting for the first time
 
 socketServer.on('connection', (socket) => {
 	socketTokenValidator(socket)
@@ -35,6 +34,7 @@ socketServer.on('connection', (socket) => {
 		removeDisconnectedSocketFromDb(socket)
 	})
 })
+
 
 
 
