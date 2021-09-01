@@ -9,7 +9,7 @@ addContactToUser.put('/:contactUsername', async (request: Request, response: Res
 		await validateRequest(contactUsername, request['username'])
 		await addNewContact(contactUsername, request['username'])
 		await addNewConversion(contactUsername, request['username'])
-		return response.status(201)
+		return response.sendStatus(201)
 	}
 	catch(error){
 		next(error)
