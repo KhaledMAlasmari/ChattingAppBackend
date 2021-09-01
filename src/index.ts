@@ -10,6 +10,7 @@ import addConnectedSocketsToDb from './listeners/middleware/addConnectedSocketTo
 import removeDisconnectedSocketFromDb from './listeners/removeDisconnectedSocketFromDb'
 import removeOldSocketsFromDb from './helpers/removeOldSocketsFromDb'
 import markMessagesAsRead from './listeners/markMessagesAsRead'
+import { exit } from 'process'
 
 const httpServer = http.createServer(app)
 const socketServer = new Server(httpServer, {
@@ -38,7 +39,14 @@ socketServer.on('connection', (socket) => {
 
 
 httpServer.listen(config.PORT, async () => {
-	await connectToDatabase()
-	await removeOldSocketsFromDb()
-	logger.info(`The server and socket are listening on http://localhost:${config.PORT}`)
+	try{
+		await connectToDatabase()
+		await removeOldSocketsFromDb()
+		logger.info(`The server and socket are listening on http://localhost:${config.PORT}`)
+	}
+	catch(error){
+		logger.error(error)
+		exit(1)
+	}
+
 })
