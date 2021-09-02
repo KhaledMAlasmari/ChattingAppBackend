@@ -25,7 +25,6 @@ socketServer.on('connection', (socket) => {
 	socketTokenValidator(socket)
 	addConnectedSocketsToDb(socket)
 	logger.info(`${socket.id} is connected!`)
-	//addContact(socket)
 	sendMessage(socket)
 	markMessagesAsRead(socket)
 
