@@ -13,7 +13,7 @@ const socketTokenValidator = (socket: Socket): void => {
 			next()
 		}
 		catch(error){
-			socket.emit(request[0], false)
+			socket.emit(request[0], 401)
 			logger.error(error)
 		}
 	})
